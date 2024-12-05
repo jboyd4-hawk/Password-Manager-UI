@@ -55,11 +55,13 @@ export class CredentialFormComponent implements OnInit {
 
     if (updatedCredential.id === null) {
       this.createCredential(updatedCredential);
+      alert("Password added successfully");
       this.router.navigate(['/']);
     } else {
       this.credentialService.updateCredentials(updatedCredential).subscribe(result => {
         this.credential = result;
       });
+      alert("Password updated successfully");
       this.router.navigate(['/']);
     }
 
@@ -68,7 +70,7 @@ export class CredentialFormComponent implements OnInit {
   private createCredential(formValues: Credential): void {
     const newCredential: Credential = { ...formValues } as Credential;
     this.credentialService.createCredentials(newCredential).subscribe(response => {
-      this.router.navigate(['/credentials']);
+      //this.router.navigate(['/credentials']);
     });
   }
 }

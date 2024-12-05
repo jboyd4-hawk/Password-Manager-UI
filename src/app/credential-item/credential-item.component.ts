@@ -25,6 +25,8 @@ export class CredentialItemComponent {
   deleteCredential(credential: Credential): void {
     this.credentialService.deleteCredentials(credential).subscribe(result => {
     })
+    alert("Password deleted successfully");
+    this.router.navigate(['/']);
   }
 
   updateCredential(credential: Credential): void {

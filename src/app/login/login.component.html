@@ -1,17 +1,17 @@
-<div class="register-container">
+<div class="container">
   <h2>Login</h2>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
 
-    <div class="form-group">
-      <label for="username">Username</label>
-      <input id="username" type="text" formControlName="username" />
+    <div class="mb-3">
+      <label class="form-label" for="username">Username</label>
+      <input class="form-control" id="username" type="text" formControlName="username" />
       @if(loginForm.get('username')?.invalid && loginForm.get('username')?.touched){
       }
     </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input id="password" type="password" formControlName="password" />
+    <div class="mb-3">
+      <label class="form-label" for="password">Password</label>
+      <input class="form-control" id="password" type="password" formControlName="password" />
       @if(loginForm.get('password')?.invalid && loginForm.get('password')?.touched){
         <div class="error-message">
           Password must be at least 6 characters long
@@ -20,7 +20,7 @@
     </div>
 
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid">Login</button>
   </form>
 
   @if(errorMessage) {

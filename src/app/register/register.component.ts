@@ -22,13 +22,15 @@ export class RegisterComponent {
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      role: ['USER', Validators.required],
     });
   }
 
   onSubmit() {
     if (this.registerForm.valid) {
-      const registerRequest: RegisterRequest = this.registerForm.value;
+      const registerRequest: RegisterRequest = {
+        ...this.registerForm.value,
+        role: 'USER' // Always set the role to 'USER'
+      };
       this.authService.register(registerRequest).subscribe();
     } else {
       this.errorMessage = 'Please fill in all the required fields.';

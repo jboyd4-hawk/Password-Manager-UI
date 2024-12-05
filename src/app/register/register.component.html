@@ -2,8 +2,8 @@
   <h2>Register</h2>
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label for="username">Username</label>
-      <input id="username" type="text" formControlName="username" />
+      <label class="form-label" for="username">Username</label>
+      <input class="form-control" id="username" type="text" formControlName="username" />
       @if(registerForm.get('username')?.invalid && registerForm.get('username')?.touched) {
         <div class="error-message">
           First name is required
@@ -12,8 +12,8 @@
     </div>
 
     <div class="form-group">
-      <label for="password">Password</label>
-      <input id="password" type="password" formControlName="password" />
+      <label class="form-label" for="password">Password</label>
+      <input class="form-control" id="password" type="password" formControlName="password" />
       @if(registerForm.get('password')?.invalid && registerForm.get('password')?.touched){
         <div class="error-message">
           Password must be at least 6 characters long
@@ -21,22 +21,7 @@
       }
     </div>
 
-    <div class="form-group">
-      <label for="role">Role</label>
-      <select id="role" formControlName="role">
-        <option value="USER">User</option>
-        <option value="ADMIN">Admin</option>
-        <option value="MANAGER">Manager</option>
-      </select>
-      @if(registerForm.get('role')?.invalid && registerForm.get('role')?.touched){
-
-        <div class="error-message">
-          Role is required
-        </div>
-      }
-    </div>
-
-    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    <button class="btn btn-primary" type="submit" [disabled]="registerForm.invalid">Register</button>
   </form>
 
   @if(errorMessage) {
